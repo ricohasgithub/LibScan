@@ -45,16 +45,11 @@ public class CameraActivity extends AppCompatActivity {
                             String rawValue = barcode.getRawValue();
 
                             int valueType = barcode.getValueType();
-                            // See API reference for complete list of supported types
+
                             switch (valueType) {
-                                case FirebaseVisionBarcode.TYPE_WIFI:
-                                    String ssid = barcode.getWifi().getSsid();
-                                    String password = barcode.getWifi().getPassword();
-                                    int type = barcode.getWifi().getEncryptionType();
-                                    break;
-                                case FirebaseVisionBarcode.TYPE_URL:
-                                    String title = barcode.getUrl().getTitle();
-                                    String url = barcode.getUrl().getUrl();
+                                case FirebaseVisionBarcode.TYPE_ISBN:
+                                    String isbn = barcode.getRawValue();
+                                    System.out.println(isbn);
                                     break;
                             }
                         }
