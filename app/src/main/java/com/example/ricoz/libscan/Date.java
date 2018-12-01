@@ -1,3 +1,4 @@
+package com.example.ricoz.libscan;
 
 public class Date {
 
@@ -13,9 +14,9 @@ public class Date {
 
     public Date (String dateString) {
         // Date string comes in the format: MM/DD/YYYY
-        month = Integer.parseInt(dateString(0,2));
-        day = Integer.parseInt(dateString(3,5));
-        year = Integer.parseInt(dateString(6,10));
+        month = Integer.parseInt(dateString.substring(0,2));
+        day = Integer.parseInt(dateString.substring(3,5));
+        year = Integer.parseInt(dateString.substring(6,10));
     }
 
     public Date () {

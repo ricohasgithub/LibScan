@@ -1,3 +1,5 @@
+package com.example.ricoz.libscan;
+
 import java.util.*;
 
 public class BookList {

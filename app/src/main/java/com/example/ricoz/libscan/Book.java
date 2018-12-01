@@ -1,3 +1,5 @@
+package com.example.ricoz.libscan;
+
 import java.util.*;
 
 public class Book implements Comparable <Book> {
@@ -19,16 +21,6 @@ public class Book implements Comparable <Book> {
 
     public Book (String ISBN, String bar) {
         this.ISBN = ISBN;
-        this.bar = bar;
-    }
-
-    public Book (String ISBN) {
-        this.ISBN = ISBN;
-        bar = null;
-    }
-
-    public Book (String bar) {
-        ISBN = null;
         this.bar = bar;
     }
 
@@ -62,7 +54,7 @@ public class Book implements Comparable <Book> {
         return 0;
     }
 
-    public int equals (Book that) {
+    public boolean equals (Book that) {
         if (that.ISBN != null && ISBN.equals(that.ISBN)) {
             return true;
         }
