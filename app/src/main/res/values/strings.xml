@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">LibScan</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Current Books</string>
+    <string name="title_dashboard">Scan</string>
+    <string name="title_notifications">History</string>
 </resources>
