@@ -45,9 +45,9 @@ public class MainActivity extends AppCompatActivity {
                     mTextMessage.setText(R.string.title_left);
                     return true;
                 case R.id.navigation_scan:
-                    // Intent myIntent = new Intent(MainActivity.this, CameraActivity.class);
+                    //Intent myIntent = new Intent(MainActivity.this, CameraActivity.class);
                     // MainActivity.this.startActivity(myIntent);
-                    //dispatchTakePictureIntent();
+                    dispatchTakePictureIntent();
                     //onActivityResult();
                     return true;
                 case R.id.navigation_history:
@@ -134,6 +134,13 @@ public class MainActivity extends AppCompatActivity {
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+
+    /*private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             File photoFile = null;
             try {
                 photoFile = createImageFile();
@@ -147,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
             }
         }
-    }
+    }*/
 
     private void addBookItem (Book b) {
         history.addBook(b);

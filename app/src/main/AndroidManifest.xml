@@ -29,7 +29,6 @@
         <activity android:name=".SettingsActivity" />
         <activity android:name=".HelpActivity" />
         <activity android:name=".AboutActivity" />
-        <activity android:name=".CameraActivity" />
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.example.ricoz.libscan.fileprovider"
