@@ -24,4 +24,20 @@ public class Date {
         day = 0;
     }
 
+    public boolean isLarger (Date d) {
+        // This method returns false if the current date is larger than the date d
+        if (year < d.year) {
+            return false;
+        } else if (year == d.year) {
+            if (month < d.month) {
+                return false;
+            } else if (month == d.month) {
+                if (day < d.day) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 }

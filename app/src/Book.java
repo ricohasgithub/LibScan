@@ -32,4 +32,18 @@ public class Book {
         this.check = check;
     }
 
+    public int daysUntilDue () {
+
+        if (due == null || check == null) {
+            throw new IllegalArgumentException("Date not initialized");
+        }
+
+
+
+    }
+
+    public boolean isDue () {
+        return !(check.isLarger(due));
+    }
+
 }
