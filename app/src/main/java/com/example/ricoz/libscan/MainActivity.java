@@ -38,7 +38,9 @@ public class MainActivity extends AppCompatActivity {
                     mTextMessage.setText(R.string.title_left);
                     return true;
                 case R.id.navigation_scan:
-                    dispatchTakePictureIntent();
+                    Intent myIntent = new Intent(MainActivity.this, CameraActivity.class);
+                    MainActivity.this.startActivity(myIntent);
+                    //dispatchTakePictureIntent();
                     //onActivityResult();
                     return true;
                 case R.id.navigation_history:
