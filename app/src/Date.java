@@ -1,9 +1,9 @@
 
 public class Date {
 
-    private int year;
-    private int month;
-    private int day;
+    public int year;
+    public int month;
+    public int day;
 
     public Date (int year, int month, int day) {
         this.year = year;
@@ -38,6 +38,30 @@ public class Date {
             }
         }
         return true;
+    }
+
+    public int getYearDiff (Date d) {
+        int yearDiff = year - d.year;
+        if (yearDiff < 0) {
+            return 0;
+        }
+        return yearDiff;
+    }
+
+    public int getMonthDiff (Date d) {
+        int monthDiff = month - d.month;
+        if (monthDiff < 0) {
+            return 0;
+        }
+        return monthDiff;
+    }
+
+    public int getDayDiff (Date d) {
+        int dayDiff = day - d.day;
+        if (dayDiff < 0) {
+            return 0;
+        }
+        return dayDiff;
     }
 
 }

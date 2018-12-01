@@ -32,18 +32,18 @@ public class Book {
         this.check = check;
     }
 
-    public int daysUntilDue () {
+    public String getDueString () {
 
         if (due == null || check == null) {
             throw new IllegalArgumentException("Date not initialized");
         }
 
-
+        return "Years: " + due.getYearDiff(check) + "\t Months: " + due.getMonthDiff(check) + "\t Days: " + due.getDayDiff(check);
 
     }
 
     public boolean isDue () {
-        return !(check.isLarger(due));
+        return !(due.isLarger(check));
     }
 
 }
