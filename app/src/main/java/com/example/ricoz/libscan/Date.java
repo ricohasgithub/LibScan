@@ -1,3 +1,4 @@
+package com.example.ricoz.libscan;
 
 public class Date {
 
