@@ -9,6 +9,8 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
+import 	android.support.v7.widget.*;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -19,6 +21,11 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
     String mCurrentPhotoPath;
+
+    private BookList history = new BookList();
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -44,12 +51,24 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+
+        mRecyclerView.setHasFixedSize(true);
+
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        mAdapter = new MainAdapter(history);
+        mRecyclerView.setAdapter(mAdapter);
+
     }
 
     @Override
@@ -109,4 +128,10 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    private void addBookItem (Book b) {
+        history.addBook(b);
+        mAdapter.notifyDataSetChanged();
+    }
+
 }

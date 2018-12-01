@@ -37,4 +37,12 @@ public class BookList {
         }
     }
 
+    public int getSize () {
+        return list.size();
+    }
+
+    public String getBookTitle (int index) {
+        return list.get(index).toString();
+    }
+
 }

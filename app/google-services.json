@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "281383911595",
+    "firebase_url": "https://libscan-b523b.firebaseio.com",
+    "project_id": "libscan-b523b",
+    "storage_bucket": "libscan-b523b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281383911595:android:9186c9ef7eb60c41",
+        "android_client_info": {
+          "package_name": "com.example.ricoz.libscan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "281383911595-npv21cdtcjf2rira0girn3p95blcdmcq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjqC9TR3og4x8Kvr_v4D4AvMx3jGkTXJo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

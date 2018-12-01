@@ -74,7 +74,7 @@ public class Book implements Comparable <Book> {
     }
 
     public String toString () {
-        return title + "\t" + author;
+        return title + "   " + author;
     }
 
 }
