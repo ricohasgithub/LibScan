@@ -21,9 +21,8 @@ public class Book implements Comparable <Book> {
         this.title = title;
     }
 
-    public Book (String ISBN, String bar) {
-        this.ISBN = ISBN;
-        this.bar = bar;
+    public Book (String isbn) {
+        this.ISBN = isbn;
     }
 
     public void setTitle (String title) {

@@ -37,12 +37,15 @@ public class CameraActivity extends AppCompatActivity {
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, 1);
         }
+        /*
+        imageView.setDrawingCacheEnabled(true);
 
         imageView.buildDrawingCache();
         Bitmap bitmap = imageView.getDrawingCache();
 
         FirebaseVisionImage image = FirebaseVisionImage.fromBitmap(bitmap);
         scanBarcodes(image);
+        */
     }
 
     private void scanBarcodes(FirebaseVisionImage image) {

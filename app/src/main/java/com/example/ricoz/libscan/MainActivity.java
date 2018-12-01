@@ -1,5 +1,8 @@
 package com.example.ricoz.libscan;
 
+import java.util.*;
+import java.io.*;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
+    private String filePath = "isbns.txt";
+
+    private LinkedList<String> list = new LinkedList<String>();
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -38,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
                     mTextMessage.setText(R.string.title_left);
                     return true;
                 case R.id.navigation_scan:
-                    Intent myIntent = new Intent(MainActivity.this, CameraActivity.class);
-                    MainActivity.this.startActivity(myIntent);
+                    // Intent myIntent = new Intent(MainActivity.this, CameraActivity.class);
+                    // MainActivity.this.startActivity(myIntent);
                     //dispatchTakePictureIntent();
                     //onActivityResult();
                     return true;
@@ -57,6 +64,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        try {
+            readFromFile();
+            System.out.println("Read successful");
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
+
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -70,6 +84,10 @@ public class MainActivity extends AppCompatActivity {
 
         mAdapter = new MainAdapter(history);
         mRecyclerView.setAdapter(mAdapter);
+
+        addBooksToList();
+        System.out.println("Books added");
+
 
     }
 
@@ -134,6 +152,20 @@ public class MainActivity extends AppCompatActivity {
     private void addBookItem (Book b) {
         history.addBook(b);
         mAdapter.notifyDataSetChanged();
+    }
+
+    private void readFromFile () throws IOException {
+        Scanner file = new Scanner(new File(filePath));
+        while (file.hasNext()) {
+            list.add(file.nextLine());
+        }
+    }
+
+    private void addBooksToList () {
+        for (String s : list) {
+            Book b = new Book(s);
+            addBookItem(b);
+        }
     }
 
 }
