@@ -2,6 +2,7 @@ package com.example.ricoz.libscan;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -23,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
                     mTextMessage.setText(R.string.title_left);
                     return true;
                 case R.id.navigation_scan:
-                    mTextMessage.setText(R.string.title_center);
+                    dispatchTakePictureIntent();
                     return true;
                 case R.id.navigation_history:
                     mTextMessage.setText(R.string.title_right);
@@ -64,5 +66,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return true;
+    }
+
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
     }
 }
