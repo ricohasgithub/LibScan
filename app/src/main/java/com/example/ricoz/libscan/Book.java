@@ -6,7 +6,9 @@ public class Book implements Comparable <Book> {
 
     public String ISBN;
     public String bar;
+
     public String title = "";
+    public String author = "";
 
     // Due date
     public Date due;
@@ -26,6 +28,10 @@ public class Book implements Comparable <Book> {
 
     public void setTitle (String title) {
         this.title = title;
+    }
+
+    public void setAuthor (String author) {
+        this.author = author;
     }
 
     public void setDueDate (Date due) {
