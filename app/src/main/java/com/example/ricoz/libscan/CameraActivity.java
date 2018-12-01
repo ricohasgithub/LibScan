@@ -24,6 +24,10 @@ import com.google.firebase.ml.vision.common.FirebaseVisionImage;
 public class CameraActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, 1);
+        }
         super.onCreate(savedInstanceState);
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
     }

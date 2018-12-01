@@ -6,4 +6,6 @@
     <string name="menu_top">Settings</string>
     <string name="menu_mid">Help</string>
     <string name="menu_bot">About</string>
+    <string name="about">LibScan is an Android application being developed by a team of students attending HackIR for MLH\'s Local Hack Day. Created by Rico, Jonah, Sidd and Fran.</string>
+    <string name="help">To use the app, simply tap the \'Scan\' button and hold your phone\'s camera up to a barcode on a book. Your book will automatically be added to your collection.</string>
 </resources>
